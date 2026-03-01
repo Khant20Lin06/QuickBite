@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quickbite/app/routes.dart';
 import 'package:quickbite/app/tokens.dart';
@@ -71,9 +71,18 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return MobileFrameScaffold(
-      frameColor: QBTokens.primary,
-      child: _SplashContent(progress: _progress),
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: const SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarIconBrightness: Brightness.light,
+        statusBarBrightness: Brightness.dark,
+        systemNavigationBarColor: QBTokens.primary,
+        systemNavigationBarIconBrightness: Brightness.light,
+      ),
+      child: MobileFrameScaffold(
+        frameColor: QBTokens.primary,
+        child: _SplashContent(progress: _progress),
+      ),
     );
   }
 }
@@ -133,7 +142,12 @@ class _SplashContent extends StatelessWidget {
                             ],
                           ),
                           alignment: Alignment.center,
-                          child: const _SplashLogoMark(size: 82),
+                          child: Image.asset(
+                            'assets/images/branding/splash_logo.png',
+                            width: 82,
+                            height: 82,
+                            fit: BoxFit.contain,
+                          ),
                         ),
                       ],
                     ),
@@ -232,106 +246,6 @@ class _SplashContent extends StatelessWidget {
       ),
     );
   }
-}
-
-class _SplashLogoMark extends StatelessWidget {
-  const _SplashLogoMark({required this.size});
-
-  final double size;
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox.square(
-      dimension: size,
-      child: const CustomPaint(painter: _SplashLogoPainter()),
-    );
-  }
-}
-
-class _SplashLogoPainter extends CustomPainter {
-  const _SplashLogoPainter();
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final shader = const LinearGradient(
-      begin: Alignment.topLeft,
-      end: Alignment.bottomRight,
-      colors: [Color(0xFFFF5EAC), QBTokens.primary],
-    ).createShader(Offset.zero & size);
-
-    void drawRoundRect({
-      required double left,
-      required double top,
-      required double width,
-      required double height,
-      required double radius,
-    }) {
-      final paint = Paint()..shader = shader;
-      canvas.drawRRect(
-        RRect.fromRectAndRadius(
-          Rect.fromLTWH(left, top, width, height),
-          Radius.circular(radius),
-        ),
-        paint,
-      );
-    }
-
-    drawRoundRect(
-      left: size.width * 0.60,
-      top: size.height * 0.00,
-      width: size.width * 0.11,
-      height: size.height * 0.20,
-      radius: size.width * 0.05,
-    );
-
-    drawRoundRect(
-      left: size.width * 0.50,
-      top: size.height * 0.16,
-      width: size.width * 0.46,
-      height: size.height * 0.12,
-      radius: size.width * 0.05,
-    );
-
-    drawRoundRect(
-      left: size.width * 0.84,
-      top: size.height * 0.16,
-      width: size.width * 0.12,
-      height: size.height * 0.80,
-      radius: size.width * 0.06,
-    );
-
-    final arcPaint = Paint()
-      ..shader = shader
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = size.width * 0.10
-      ..strokeCap = StrokeCap.round;
-    final bunArcRect = Rect.fromLTWH(
-      size.width * 0.03,
-      size.height * 0.36,
-      size.width * 0.53,
-      size.height * 0.30,
-    );
-    canvas.drawArc(bunArcRect, math.pi, math.pi, false, arcPaint);
-
-    drawRoundRect(
-      left: size.width * 0.01,
-      top: size.height * 0.66,
-      width: size.width * 0.55,
-      height: size.height * 0.10,
-      radius: size.width * 0.03,
-    );
-
-    drawRoundRect(
-      left: size.width * 0.02,
-      top: size.height * 0.82,
-      width: size.width * 0.53,
-      height: size.height * 0.10,
-      radius: size.width * 0.06,
-    );
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
 
 class _DecorativeOrb extends StatelessWidget {
