@@ -1,0 +1,8 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:quickbite/features/home/domain/home_models.dart';
+import 'package:quickbite/services/home_providers.dart';
+
+final orderConfirmationOverviewProvider =
+    FutureProvider<OrderConfirmationOverview>((ref) async {
+      return ref.read(homeRepositoryProvider).getOrderConfirmation();
+    });

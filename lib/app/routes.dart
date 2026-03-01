@@ -1,0 +1,26 @@
+abstract final class AppRoutes {
+  static const splash = '/splash';
+  static const onboarding = '/onboarding';
+  static const login = '/auth/login';
+  static const register = '/auth/register';
+  static const forgotPassword = '/auth/forgot';
+  static const otp = '/auth/otp';
+  static const homeFood = '/home/food';
+  static const homePandamart = '/home/pandamart';
+  static const homeVouchers = '/home/vouchers';
+  static const homeOrders = '/home/orders';
+  static const homeProfile = '/home/profile';
+  static const homeSearch = '/home/search';
+  static const homeReview = '/home/review';
+  static const homeAddress = '/home/address';
+  static const homePayments = '/home/payments';
+  static const homeHelp = '/home/help';
+  static const homeFavorites = '/home/favorites';
+  static const homeRestaurantDetails = '/home/restaurant';
+  static const homeSettings = '/home/settings';
+  static const homeInvite = '/home/invite';
+  static const homePrivacy = '/home/privacy';
+  static const homeAddCard = '/home/cards/add';
+  static const homeCheckout = '/home/checkout';
+  static const homeOrderConfirmation = '/home/order-confirmation';
+}

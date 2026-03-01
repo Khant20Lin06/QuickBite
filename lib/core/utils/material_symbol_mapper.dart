@@ -1,0 +1,93 @@
+import 'package:flutter/material.dart';
+import 'package:material_symbols_icons/material_symbols_icons.dart';
+
+IconData mapMaterialSymbol(String name) {
+  switch (name) {
+    case 'delivery_dining':
+      return Symbols.delivery_dining;
+    case 'confirmation_number':
+      return Symbols.confirmation_number;
+    case 'restaurant':
+      return Symbols.restaurant;
+    case 'payments':
+      return Symbols.payments;
+    case 'shopping_basket':
+      return Symbols.shopping_basket;
+    case 'celebration':
+      return Symbols.celebration;
+    case 'shopping_bag':
+      return Symbols.shopping_bag;
+    case 'storefront':
+      return Symbols.storefront;
+    case 'home':
+      return Symbols.home;
+    case 'receipt_long':
+      return Symbols.receipt_long;
+    case 'person':
+      return Symbols.person;
+    case 'local_shipping':
+      return Symbols.local_shipping;
+    case 'more_horiz':
+      return Symbols.more_horiz;
+    case 'help':
+      return Symbols.help;
+    case 'info':
+      return Symbols.info;
+    case 'schedule':
+      return Symbols.schedule;
+    case 'sell':
+      return Symbols.sell;
+    case 'shopping_cart':
+      return Symbols.shopping_cart;
+    case 'credit_card':
+      return Symbols.credit_card;
+    case 'location_on':
+      return Symbols.location_on;
+    case 'help_center':
+      return Symbols.help_center;
+    case 'settings':
+      return Symbols.settings;
+    case 'card_giftcard':
+      return Symbols.card_giftcard;
+    case 'security':
+      return Symbols.security;
+    case 'payment':
+      return Symbols.payment;
+    case 'ios':
+      return Symbols.ios;
+    case 'account_balance_wallet':
+      return Symbols.account_balance_wallet;
+    case 'error':
+      return Symbols.error;
+    case 'account_circle':
+      return Symbols.account_circle;
+    case 'notifications_active':
+      return Symbols.notifications_active;
+    case 'language':
+      return Symbols.language;
+    case 'delete_sweep':
+      return Symbols.delete_sweep;
+    case 'policy':
+      return Symbols.policy;
+    case 'description':
+      return Symbols.description;
+    case 'fastfood':
+      return Symbols.fastfood;
+    case 'local_drink':
+      return Symbols.local_drink;
+    case 'chat_bubble':
+      return Symbols.chat_bubble;
+    case 'logout':
+      return Symbols.logout;
+    case 'work':
+      return Symbols.work;
+    case 'edit':
+      return Symbols.edit;
+    case 'my_location':
+      return Symbols.my_location;
+    case 'add_a_photo':
+      return Symbols.add_a_photo;
+    default:
+      return Symbols.star;
+  }
+}
